@@ -1,6 +1,6 @@
 # BoiteAEnvie
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+CMS hosted on netlify, front built with angular
 
 ## Development server
 
