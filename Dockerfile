@@ -1,0 +1,4 @@
+FROM node
+WORKDIR /app
+VOLUME /app
+EXPOSE 4200

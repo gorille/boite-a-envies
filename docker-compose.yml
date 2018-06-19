@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - ".:/app"
+    ports:
+      - "4200:4200"
+    command: bash -c "npm i && npm start"
