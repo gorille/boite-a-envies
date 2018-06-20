@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disable-host-check --poll 1000",
-    "build": "ng build--prod && mv admin dist/boite-a-envie/",
+    "build": "ng build --prod && mv admin dist/boite-a-envie/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
