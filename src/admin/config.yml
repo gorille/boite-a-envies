@@ -2,7 +2,7 @@ backend:
   name: git-gateway
 
 display_url: https://boite-a-envies.netlify.com/
-media_folder: "assets/uploads"
+media_folder: "src/assets/images"
 
 collections: # A list of collections the CMS should be able to edit
   - name: "bracelets" # Used in routes, ie.: /admin/collections/:slug/edit
