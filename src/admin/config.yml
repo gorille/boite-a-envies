@@ -3,6 +3,7 @@ backend:
 
 display_url: https://boite-a-envies.netlify.com/
 media_folder: "src/assets/images"
+public_folder: "/assets/images"
 
 collections: # A list of collections the CMS should be able to edit
   - name: "bracelets" # Used in routes, ie.: /admin/collections/:slug/edit
@@ -17,6 +18,6 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Photo", name: "image", widget: "image", required: true, tagname: ""}
-      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
       - {label: "Taille", name: "taille", widget: "number"}
       - {label: "Prix", name: "prix", widget: "number"}
