@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --disable-host-check --poll 1000",
-    "build": "ng build --prod",
+    "loadJson": "node tasks/compileCollections.js",
+    "start": "npm run loadJson && ng serve --host 0.0.0.0 --disable-host-check --poll 1000",
+    "build": "npm run loadJson && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -22,9 +23,11 @@
     "@angular/router": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.0.0-alpha.0",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
+    "asynch": "^0.5.2",
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
+    "sharp": "^0.20.5",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
