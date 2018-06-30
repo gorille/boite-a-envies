@@ -40,4 +40,4 @@ Thumbs.db
 
 #result from json compilation
 src/api
-images
+/images

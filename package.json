@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "loadJson": "node tasks/compileCollections.js",
+    "addImage": "node tasks/compressImages.js",
     "start": "npm run loadJson && ng serve --host 0.0.0.0 --disable-host-check --poll 1000",
     "build": "npm run loadJson && ng build --prod",
     "test": "ng test",
