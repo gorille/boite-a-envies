@@ -3,5 +3,6 @@
   "prix": "8",
   "image": "/assets/images/IMG_4061.JPG",
   "description": "Bracelet composé d'une épaisse lanière de cuir naturel avec couture et d'un fermoir magnétique en métal",
-  "taille": "21"
+  "taille": "21",
+  "type": "bracelet"
 }
