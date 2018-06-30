@@ -3,5 +3,6 @@
   "prix": "bracelet",
   "image": "/assets/images/IMG_4204.JPG",
   "description": "Bracelet rose et violet en cuir.",
-  "taille": "18"
+  "taille": "18",
+  "type": "bracelet"
 }

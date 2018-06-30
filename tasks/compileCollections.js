@@ -14,7 +14,7 @@ async function loadContent(folder) {
       result.push( JSON.parse(await readFile(path.join(folder, file))) )
     }
 
-    fs.writeFile(path.join('src', 'api', 'products.json'), JSON.stringify(result), err => {
+    fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(result), err => {
       if (err) throw `error writing dest ${dest}`
     }
 
