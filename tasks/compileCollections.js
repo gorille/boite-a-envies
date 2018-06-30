@@ -4,7 +4,7 @@ const readDir = util.promisify(fs.readdir);
 const readFile = util.promisify(fs.readFile);
 const path = require('path');
 
-async function loadContent(folder, dest) {
+async function loadContent(folder) {
 
   try {
     const files = await readDir(folder);
@@ -14,7 +14,7 @@ async function loadContent(folder, dest) {
       result.push( JSON.parse(await readFile(path.join(folder, file))) )
     }
 
-    fs.writeFile(path.join('src', 'api', `${dest}.json`), JSON.stringify(result), err => {
+    fs.writeFile(path.join('src', 'api', 'products.json'), JSON.stringify(result), err => {
       if (err) throw `error writing dest ${dest}`
     }
 
@@ -27,4 +27,4 @@ async function loadContent(folder, dest) {
 }
 
 
-loadContent('_bracelets', 'bracelets');
+loadContent('_products');

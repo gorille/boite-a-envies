@@ -6,17 +6,18 @@ media_folder: "src/assets/images"
 public_folder: "/assets/images"
 
 collections: # A list of collections the CMS should be able to edit
-  - name: "bracelets" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Bracelets" # Used in the UI
-    label_singular: "Bracelet" # Used in the UI, ie: "New Post"
+  - name: "produits" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Produits" # Used in the UI
+    label_singular: "Produit" # Used in the UI, ie: "New Post"
     format: json
     description: >
-      Pour la publication des bracelets sur le site
-    folder: "_bracelets"
+      Pour la publication des articles sur le site
+    folder: "_products"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Type", name: "prix", widget: "select", options: ["bracelet", "montre", "bijoux", "accessoire"]}
       - {label: "Photo", name: "image", widget: "image", required: true, tagname: ""}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Taille", name: "taille", widget: "number"}
