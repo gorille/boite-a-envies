@@ -5,7 +5,7 @@
     "ng": "ng",
     "loadJson": "node tasks/compileCollections.js",
     "start": "npm run loadJson && ng serve --host 0.0.0.0 --disable-host-check --poll 1000",
-    "build": "ng build --prod",
+    "build": "npm run loadJson && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

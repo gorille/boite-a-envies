@@ -16,9 +16,9 @@ collections: # A list of collections the CMS should be able to edit
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
-      - {label: "Type", name: "prix", widget: "select", options: ["bracelet", "montre", "bijoux", "accessoire"]}
+      - {label: "Title", name: "title", widget: "string",required: true , tagname: "h1"}
+      - {label: "Type", required: true, name: "prix", widget: "select", options: ["bracelet", "montre", "bijoux", "accessoire"]}
       - {label: "Photo", name: "image", widget: "image", required: true, tagname: ""}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "text", required: true}
       - {label: "Taille", name: "taille", widget: "number"}
-      - {label: "Prix", name: "prix", widget: "number"}
+      - {label: "Prix", name: "prix", widget: "number", required: true}
