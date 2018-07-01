@@ -27,6 +27,7 @@
     "asynch": "^0.5.2",
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.4",
+    "jw-angular-social-buttons": "0.0.1",
     "rxjs": "^6.0.0",
     "sharp": "^0.20.5",
     "zone.js": "^0.8.26"

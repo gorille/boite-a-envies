@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 
+// facebook sdk integration
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    JwSocialButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
