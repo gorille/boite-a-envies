@@ -12,7 +12,7 @@ import { Product } from '../data/product'
 })
 export class ProductListComponent implements OnInit {
 
-  private products: Product[]
+  products: Product[]
 
   constructor(
                 private route: ActivatedRoute,
