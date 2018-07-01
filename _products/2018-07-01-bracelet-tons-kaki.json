@@ -3,5 +3,6 @@
   "prix": "19",
   "image": "/assets/images/IMG_3116.JPG",
   "description": "Bracelet composé de 6 lanières : \ndeux lanières de cuir vert kaki métallisé, une lanière de cuir kaki pailleté, d'une lanière de suédine cloutée couleur crème, d'une lanière de cuir kaki et d'un cordon en cuir marron métallisé.\nFermoir en zamak (alliage de zinc, aluminium, cuivre et magnésium)",
-  "taille": "18.5"
+  "taille": "18.5",
+  "type": "bracelet"
 }

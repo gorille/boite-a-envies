@@ -3,5 +3,6 @@
   "prix": "15",
   "image": "/assets/images/IMG_3579.JPG",
   "description": "Montre composée d'un cadran en métal, d'une lanière synthétique noire \"grain caviar\" et d'un fermoir magnétique en zamak (alliage de zinc, d'aluminium, de magnésium et de cuivre) ",
-  "taille": "33.5"
+  "taille": "33.5",
+  "type": "bracelet"
 }

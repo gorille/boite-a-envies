@@ -3,5 +3,6 @@
   "prix": "14",
   "image": "/assets/images/IMG_3648.JPG",
   "description": "Bracelet composé de deux lanières de cuir doré, d'une lanière de cuir suédé doré, d'une lanière de suédine doré métallisé, d'un cordon de cuir marron métallisé.\nFermoir crochet en métal",
-  "taille": "19"
+  "taille": "19",
+  "type": "bracelet"
 }
