@@ -15,9 +15,14 @@ async function compress(folder) {
     for ( file of files) {
       if ( file.endsWith('JPG')) {
         console.log(`compressing ${file}`);
-        sharp(path.join('images', file))
+        await sharp(path.join('images', file))
           .resize(500)
           .toFile(path.join('src', 'assets', 'images', file));
+        fs.unlink(path.join('images', file), (err) => {
+          if (err) throw err;
+          console.log(`successfully deleted ${path.join('images', file)}`);
+        });
+
       }
     }
   } catch (err ) {
