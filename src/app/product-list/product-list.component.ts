@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProductService } from '../product.service';
-import { Product } from '../data/product'
-
+import { Product } from '../data/product';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -20,9 +20,14 @@ export class ProductListComponent implements OnInit {
                 private productsService: ProductService
               ) {}
   ngOnInit() {
-    const type = this.route.snapshot.paramMap.get('type');
-    console.log(type)
-    this.products = this.productsService.getProducts().filter (elt => elt.type === type)
+    this.route.paramMap
+              .subscribe( params => {
+                const type = params.get('type');
+                this.products = this.productsService.getProducts().filter (elt => elt.type === type)
+              });
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
