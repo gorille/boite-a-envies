@@ -1,7 +1,8 @@
 {
   "title": "Montre cuir et tissu liberty",
-  "prix": "montre",
+  "prix": "16",
   "image": "/assets/images/IMG_3148.JPG",
   "description": "Montre composé d'un cadran, de deux lanières de cuir noir et violet métallisé et d'un biais de tissu liberty mauve.\nFermoir magnétique en métal forme papillon",
-  "taille": "19"
+  "taille": "19",
+  "type": "montre"
 }
