@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="row shadow p-3 m-3 bg-white rounded" *ngFor="let product of products">
+<div class="row shadow p-3 m-3 bg-white rounded clickable" (click)="openDetails(product)" *ngFor="let product of products" >
   <div class="col-md-3">
     <img src="{{product.image}}"  class="img-thumbnail">
   </div>

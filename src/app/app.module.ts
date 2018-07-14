@@ -8,13 +8,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     NavbarComponent,
-    ProductListComponent
+    ProductListComponent,
+    ModalViewComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { ProductListComponent } from './product-list/product-list.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalViewComponent]
 })
 export class AppModule { }
