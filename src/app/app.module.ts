@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
+import { AProposComponent } from './a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
     WelcomeComponent,
     NavbarComponent,
     ProductListComponent,
-    ModalViewComponent
+    ModalViewComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule,
