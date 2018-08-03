@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
 
-display_url: https://boite-a-envies.netlify.com/
+display_url: https://la-boite-a-envies.fr/
 media_folder: "src/assets/images"
 public_folder: "/assets/images"
 

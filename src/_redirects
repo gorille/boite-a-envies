@@ -1,1 +1,12 @@
+# makes SPA work.
 /*    /index.html   200
+
+# redirects alternates domain names to pmrimary
+https://la-boite-a-envies.com/* https://la-boite-a-envies.fr/:splat 301!
+http://la-boite-a-envies.com/* https://la-boite-a-envies.fr/:splat 301!
+https://boite-a-envies.com/* https://la-boite-a-envies.fr/:splat 301!
+http://boite-a-envies.com/* https://la-boite-a-envies.fr/:splat 301!
+https://boite-a-envies.fr/* https://la-boite-a-envies.fr/:splat 301!
+http://boite-a-envies.fr/* https://la-boite-a-envies.fr/:splat 301!
+https://boite-a-envies.netlify.com/* https://la-boite-a-envies.fr/:splat 301!
+http://boite-a-envies.netlify.com/* https://la-boite-a-envies.fr/:splat 301!
