@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule, AfterViewInit } from '@angular/core';
+import { RouterModule, Routes, Router, NavigationEnd } from '@angular/router';
 import { WelcomeComponent } from '../welcome/welcome.component'
 import { ProductListComponent } from '../product-list/product-list.component'
 import { AProposComponent } from '../a-propos/a-propos.component';
@@ -14,4 +14,15 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule implements AfterViewInit { 
+  constructor(private router: Router) {}
+
+  ngAfterViewInit(): void {
+    this.router.events.subscribe(event => {
+     if (event instanceof NavigationEnd) {
+       (<any>window).ga('set', 'page', event.urlAfterRedirects);
+       (<any>window).ga('send', 'pageview');
+     }
+   });
+  }
+}
