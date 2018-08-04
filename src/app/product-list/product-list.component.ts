@@ -15,6 +15,7 @@ import { ModalViewComponent } from '../modal-view/modal-view.component';
 export class ProductListComponent implements OnInit {
 
   products: Product[]
+  page = 1
 
   constructor(
                 private route: ActivatedRoute,

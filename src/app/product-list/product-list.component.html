@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="row shadow p-3 m-3 bg-white rounded clickable" (click)="openDetails(product)" *ngFor="let product of products" >
+<div class="row shadow p-3 m-3 bg-white rounded clickable" (click)="openDetails(product)" *ngFor="let product of products.slice(page *10 -10 , page*10)" >
   <div class="col-md-3">
     <img src="{{product.image}}"  class="img-thumbnail">
   </div>
@@ -27,5 +27,10 @@
               <p class="text-right"><strong>{{product.prix}} EUR</strong></p>
           </div>
         </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+      <ngb-pagination [collectionSize]="products.length" [(page)]="page" class="d-flex justify-content-center"></ngb-pagination>
   </div>
 </div>
