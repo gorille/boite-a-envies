@@ -15,7 +15,17 @@
     <img src="{{product.image}}"  class="img-thumbnail">
   </div>
   <div class='col-md'>
-        <h5>{{product.title}}</h5>
-        <p>{{product.description}}</p>
+      <div class="row">
+        <div class="col-md">
+          <h5>{{product.title}}</h5>
+          <hr>
+          <p>{{product.description}}</p>
+        </div>
+      </div>
+      <div class="row navbar-fixed-bottom">
+          <div class="col-md">
+              <p class="text-right"><strong>{{product.prix}} EUR</strong></p>
+          </div>
+        </div>
   </div>
 </div>

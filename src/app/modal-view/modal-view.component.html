@@ -6,12 +6,12 @@
 </div>
 <div class="modal-body">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row text-center">
       <div class="col-md-12">
         <img src="{{product.image}}">
       </div>
     </div>
-    <div class="row mt-1">
+    <div class="row mt-2">
       <div class="col-md-12">
         <h5>Description:</h5>
         <p>{{product.description}}</p>
@@ -19,6 +19,10 @@
             Taille: 
             <small class="text-muted">{{product.taille}} cm</small>
         </h5>
+        <h5 *ngIf="product.prix">
+          Prix: 
+          <small class="text-muted">{{product.prix}} €</small>
+      </h5>
       </div>
     </div>
   </div>
