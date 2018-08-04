@@ -14,15 +14,6 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule implements AfterViewInit { 
-  constructor(private router: Router) {}
-
-  ngAfterViewInit(): void {
-    this.router.events.subscribe(event => {
-     if (event instanceof NavigationEnd) {
-       (<any>window).ga('set', 'page', event.urlAfterRedirects);
-       (<any>window).ga('send', 'pageview');
-     }
-   });
-  }
+export class AppRoutingModule  { 
+  
 }
