@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Product } from './data/product';
 
 
 @Injectable({
@@ -25,7 +26,7 @@ export class AnalyticsService  {
     this.tracker.send('pageview');
   }
 
-  public openProduct(product: string) {
-    this.tracker.send('event', 'product', 'detail', product);
+  public openProduct(product: Product) {
+    this.tracker.send('event', 'product', 'detail', product.title, product.prix);
   }
 }

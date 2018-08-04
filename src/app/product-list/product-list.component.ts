@@ -39,8 +39,8 @@ export class ProductListComponent implements OnInit {
 
   openDetails(product: Product): void {
     // send analytics
-    this.analyticsService.openProduct(product.title);
-    
+    this.analyticsService.openProduct(product);
+
     const modalRef = this.modalService.open(ModalViewComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.product = product;
   }
