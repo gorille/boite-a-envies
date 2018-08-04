@@ -26,6 +26,6 @@ export class AnalyticsService  {
   }
 
   public openProduct(product: string) {
-    this.tracker.send('event', 'product', 'detail', product);
+    this.tracker.send('event', 'product', product);
   }
 }
