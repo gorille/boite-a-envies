@@ -8,8 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ModalViewComponent } from './modal-view/modal-view.component';
 import { AProposComponent } from './a-propos/a-propos.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -17,17 +18,17 @@ import { AProposComponent } from './a-propos/a-propos.component';
     WelcomeComponent,
     NavbarComponent,
     ProductListComponent,
-    ModalViewComponent,
+    ProductDetailComponent,
     AProposComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    FacebookModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ModalViewComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

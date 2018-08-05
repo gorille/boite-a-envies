@@ -1,0 +1,33 @@
+<div *ngIf="product" class="shadow p-3 m-3 bg-white rounded">
+  <div class="modal-header" >
+    <h4 class="modal-title">{{product.title}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <img src="{{product.image}}">
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <h5>Description:</h5>
+          <p>{{product.description}}</p>
+          <h5 *ngIf="product.taille">
+              Taille: 
+              <small class="text-muted">{{product.taille}} cm</small>
+          </h5>
+          <h5 *ngIf="product.prix">
+            Prix: 
+            <small class="text-muted">{{product.prix}} €</small>
+        </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <fb-like href="https://la-boite-a-envies.fr/detail/{{product.id}}" layout="button_count" share="true" size="large"></fb-like>
+    <button type="button" class="btn btn-sm btn-secondary" (click)="back()">Retour</button>
+  </div>
+</div>

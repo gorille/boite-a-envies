@@ -11,7 +11,9 @@ async function loadContent(folder) {
     let result = []
 
     for ( file of files) {
-      result.push( JSON.parse(await readFile(path.join(folder, file))) )
+      const data = JSON.parse(await readFile(path.join(folder, file)))
+      data.id = path.basename(file, '.json')
+      result.push( data )
     }
 
     fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(result), err => {
