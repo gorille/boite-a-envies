@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngAfterViewInit() {
+    if ((<any>window).FB !== undefined) {
+     (<any>window).FB.XFBML.parse();
+   }
+ }
 }

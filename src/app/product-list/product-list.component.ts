@@ -3,9 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProductService } from '../product.service';
 import { Product } from '../data/product';
-import { map } from 'rxjs/operators';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalViewComponent } from '../modal-view/modal-view.component';
 import { AnalyticsService } from '../analytics.service';
 
 @Component({
@@ -22,7 +19,6 @@ export class ProductListComponent implements OnInit {
                 private route: ActivatedRoute,
                 private location: Location,
                 private productsService: ProductService,
-                private modalService: NgbModal,
                 private analyticsService: AnalyticsService
               ) {}
   ngOnInit() {
@@ -31,17 +27,5 @@ export class ProductListComponent implements OnInit {
                 const type = params.get('type');
                 this.products = this.productsService.getProducts().filter (elt => elt.type === type)
               });
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  openDetails(product: Product): void {
-    // send analytics
-    this.analyticsService.openProduct(product);
-
-    const modalRef = this.modalService.open(ModalViewComponent, { size: 'lg', centered: true });
-    modalRef.componentInstance.product = product;
   }
 }
