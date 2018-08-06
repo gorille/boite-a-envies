@@ -24,6 +24,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
               .subscribe( params => {
+                this.page = 1;
                 const type = params.get('type');
                 this.products = this.productsService.getProducts().filter (elt => elt.type === type)
               });

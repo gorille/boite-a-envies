@@ -8,3 +8,5 @@ services:
     ports:
       - "4200:4200"
     command: bash -c "npm i && npm start"
+    environment:
+      - CLOUDINARY_URL=${CLOUDINARY_URL}
