@@ -1,32 +1,37 @@
+const cloudinary = require('cloudinary');
 const fs = require('fs');
-const util = require('util');
-const readDir = util.promisify(fs.readdir);
-const readFile = util.promisify(fs.readFile);
 const path = require('path');
 
-async function loadContent(folder) {
+const options = { type: 'upload',
+                  max_results: 500,
+                  context: true,
+                  tags: true
+                }
 
-  try {
-    const files = await readDir(folder);
-    let result = []
-
-    for ( file of files) {
-      const data = JSON.parse(await readFile(path.join(folder, file)))
-      data.id = path.basename(file, '.json')
-      result.push( data )
-    }
-
-    fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(result, null, 2), err => {
+cloudinary.v2.api.resources(options, function(error, result){
+  if (error) {
+    console.error('error while loading photos', error);
+  } else {
+    const results = []
+  
+    result.resources.forEach(image => {
+      const product = {}
+      const parts = image.public_id.split('/')
+      if (parts.length === 2 && image.context !== undefined) {
+        product.id = parts[1]
+        product.type = parts[0]
+        product.prix = image.context.custom.prix
+        if (image.context.custom.taille) {
+          product.taille = image.context.custom.taille
+        } 
+        product.title = image.context.custom.caption
+        product.description = image.context.custom.alt
+        product.image = image.secure_url
+        results.push(product)
+      }
+    })
+    fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(results, null, 2), err => {
       if (err) throw `error writing dest ${dest}`
-    }
-
-  )
-
-  } catch (err ) {
-    console.error('error reading folder');
+    });
   }
-
-}
-
-
-loadContent('_products');
+});
