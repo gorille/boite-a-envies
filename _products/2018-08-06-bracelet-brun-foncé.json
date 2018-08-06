@@ -3,5 +3,6 @@
   "prix": "10",
   "image": "/assets/images/IMG_4057.JPG",
   "description": "Bracelet composé d'un fermoir magnétique en zamak (alliage de cuivre, zinc, aluminium et magnésium) et d'une lanière en cuir brun foncé de 10 mm \nConvient à un poignet de 16/16,5 cm",
-  "taille": "20"
+  "taille": "20",
+  "type": "bracelet"
 }

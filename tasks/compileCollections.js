@@ -16,7 +16,7 @@ async function loadContent(folder) {
       result.push( data )
     }
 
-    fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(result), err => {
+    fs.writeFile(path.join('src', 'app', 'products.ts'), 'export const all = ' + JSON.stringify(result, null, 2), err => {
       if (err) throw `error writing dest ${dest}`
     }
 
