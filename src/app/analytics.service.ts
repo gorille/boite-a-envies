@@ -1,17 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
-import { Subject, Observable } from 'rxjs';
-
+import { Meta, DOCUMENT } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService  {
 
-  public _refreshFb = new Subject<boolean>();
 
-  constructor(private router: Router, private meta: Meta) {
+  constructor(private router: Router, private meta: Meta, @Inject(DOCUMENT) private document: any) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && (<any>window).ga !== undefined) {
         this.navigation(event.urlAfterRedirects);
@@ -62,12 +59,9 @@ export class AnalyticsService  {
    */
   public refreshFB(): void {
     if ((<any>window).FB !== undefined) { 
-      console.log("redrawing");
-      (<any>window).FB.XFBML.parse();
+      const elts: any[] = Array.from(this.document.getElementsByClassName('fb-like'))
+      console.log("redrawing", elts);
+      elts.forEach(elt => (<any>window).FB.XFBML.parse(elt.parentElement))
     }
-  }
-  
-  public fbRefreshRequest(): Observable<boolean> {
-    return this._refreshFb.asObservable();
   }
 }
