@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { ProductService } from '../product.service';
 import { Product } from '../data/product';
-import { AnalyticsService } from '../analytics.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,9 +15,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
                 private route: ActivatedRoute,
-                private location: Location,
-                private productsService: ProductService,
-                private analyticsService: AnalyticsService
+                private productsService: ProductService
               ) {}
   ngOnInit() {
     this.route.paramMap

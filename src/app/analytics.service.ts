@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Product } from './data/product';
+import { Meta } from '@angular/platform-browser';
 
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Product } from './data/product';
 })
 export class AnalyticsService  {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private meta: Meta) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && (<any>window).ga !== undefined) {
         this.navigation(event.urlAfterRedirects);
@@ -26,7 +26,17 @@ export class AnalyticsService  {
     this.tracker.send('pageview');
   }
 
-  public openProduct(product: Product) {
-    this.tracker.send('event', 'product', 'detail', product.title, product.prix);
+  public updateCard(url: string, title: string, desc: string, image: string) {
+    
+    const props = new Map([['og:url', url], ['og:title', title], ['og:description', desc], ['og:image', image]]);
+    props.forEach((value, prop)=> {
+      console.log(prop, this.meta.getTag(`property='${prop}'`));
+      
+      if (this.meta.getTag(`property='${prop}'`) !== undefined) {
+        this.meta.updateTag({ property: prop, content: value })
+      } else {
+        this.meta.addTag({ property: prop, content: value })
+      }
+    });
   }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Product } from '../data/product';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Location } from '@angular/common';
+import { AnalyticsService } from '../analytics.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,11 +17,19 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
   constructor(private route: ActivatedRoute, 
               private productsService: ProductService,
               private location: Location,
+              private analyticsService: AnalyticsService,
+              private router: Router,
              ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.product = this.productsService.getProducts().find(product => product.id === params.get('id'))
+      this.analyticsService.updateCard(
+        'https://la-boite-a-envies.fr' + this.router.url,
+        this.product.title,
+        this.product.description,
+        this.product.image
+      )
     });
   }
 
