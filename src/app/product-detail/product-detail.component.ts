@@ -18,7 +18,6 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
               private productsService: ProductService,
               private location: Location,
               private analyticsService: AnalyticsService,
-              private router: Router,
              ) { }
 
   ngOnInit() {
@@ -34,9 +33,7 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if ((<any>window).FB !== undefined) {
-      (<any>window).FB.XFBML.parse();
-    }
+   this.analyticsService.refreshFB()
   }
 
   back() {

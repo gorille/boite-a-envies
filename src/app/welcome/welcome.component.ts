@@ -12,9 +12,7 @@ export class WelcomeComponent implements AfterViewInit {
 
 
   ngAfterViewInit() {
-    if ((<any>window).FB !== undefined) {
-     (<any>window).FB.XFBML.parse();
-   }
+    this.analytics.refreshFB()
  }
 
   ngOnInit() {
