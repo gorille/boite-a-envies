@@ -1,30 +1,34 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Renderer, ElementRef } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
+import { FBMLAttribute, FBMLComponent } from 'ngx-facebook/dist/esm/components/fbml-component';
 
 @Component({
   selector: 'app-messenger',
-  templateUrl: './messenger.component.html',
-  styleUrls: ['./messenger.component.css']
+  template: ''
 })
-export class MessengerComponent implements OnInit, AfterViewChecked {
+export class MessengerComponent extends FBMLComponent implements AfterViewInit {
+  @Input()
+  @FBMLAttribute
+  attribution
 
-  forceRedraw = true
-  draw  = true
+  @Input()
+  @FBMLAttribute
+  page_id="199891950466521"
 
-  constructor(private analyticsService: AnalyticsService) {}
+  @Input()
+  @FBMLAttribute
+  logged_in_greeting="Bonjour, dites moi ce qui vous ferait plaisir !"
 
-  ngOnInit() {
-    this.analyticsService.fbRefreshRequest().subscribe(_=> {
-      console.log("requesting redraw");
-      this.draw = true
-    })
+  @Input()
+  @FBMLAttribute
+  logged_out_greeting="Bonjour, dites moi ce qui vous ferait plaisir !"
+
+  constructor(el: ElementRef, rnd: Renderer, private analytics : AnalyticsService) {
+    super(el, rnd, 'fb-customerchat');
   }
-  ngAfterViewChecked() {
-    if ((<any>window).FB !== undefined && this.draw) { 
-      console.log("redrawing");
-      (<any>window).FB.XFBML.parse();
-      this.draw = false
-    }
+
+  ngAfterViewInit() {
+    this.analytics.refreshFB()
   }
 
 }

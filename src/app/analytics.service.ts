@@ -61,7 +61,11 @@ export class AnalyticsService  {
    * sends out the event requesting a window.FB.XFBML/parse()
    */
   public refreshFB(): void {
-    this._refreshFb.next(true);
+    if ((<any>window).FB !== undefined) { 
+      console.log("redrawing");
+      (<any>window).FB.XFBML.parse();
+    }
+    //this._refreshFb.next(true);
   }
   
   public fbRefreshRequest(): Observable<boolean> {
