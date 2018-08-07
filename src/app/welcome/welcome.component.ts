@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
 
 @Component({

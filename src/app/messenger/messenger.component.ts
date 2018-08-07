@@ -6,7 +6,7 @@ import { FBMLAttribute, FBMLComponent } from 'ngx-facebook/dist/esm/components/f
   selector: 'app-messenger',
   template: ''
 })
-export class MessengerComponent extends FBMLComponent implements AfterViewInit {
+export class MessengerComponent extends FBMLComponent {
   @Input()
   @FBMLAttribute
   attribution
@@ -23,12 +23,7 @@ export class MessengerComponent extends FBMLComponent implements AfterViewInit {
   @FBMLAttribute
   logged_out_greeting="Bonjour, dites moi ce qui vous ferait plaisir !"
 
-  constructor(el: ElementRef, rnd: Renderer, private analytics : AnalyticsService) {
+  constructor( el: ElementRef, rnd: Renderer, private analytics : AnalyticsService) {
     super(el, rnd, 'fb-customerchat');
   }
-
-  ngAfterViewInit() {
-    this.analytics.refreshFB()
-  }
-
 }

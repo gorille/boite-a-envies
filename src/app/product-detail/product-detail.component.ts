@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Product } from '../data/product';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Location } from '@angular/common';
 import { AnalyticsService } from '../analytics.service';

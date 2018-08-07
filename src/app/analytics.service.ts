@@ -65,7 +65,6 @@ export class AnalyticsService  {
       console.log("redrawing");
       (<any>window).FB.XFBML.parse();
     }
-    //this._refreshFb.next(true);
   }
   
   public fbRefreshRequest(): Observable<boolean> {
