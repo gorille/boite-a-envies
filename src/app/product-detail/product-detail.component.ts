@@ -26,7 +26,6 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
       this.product = this.productsService.getProducts().find(product => product.id === params.get('id'))
       
       this.analyticsService.updateCard(
-        'https://la-boite-a-envies.fr' + this.router.url,
         this.product.title,
         this.product.description,
         this.product.image

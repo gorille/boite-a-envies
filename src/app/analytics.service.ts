@@ -26,8 +26,15 @@ export class AnalyticsService  {
     this.tracker.send('pageview');
   }
 
-  public updateCard(url: string, title: string, desc: string, image: string) {
-    const props = new Map([['og:url', (<any>window).location.href], ['og:title', title], ['og:image', image], ['description', desc]]);
+  public updateCard(title: string, desc: string, image: string) {
+    const props = new Map([
+        ['og:url', (<any>window).location.href], 
+        ['og:title', title], 
+        ['og:image', image], 
+        ['og:image:alt', title], 
+        ['og:description', desc],
+        ['description', desc]
+      ]);
     props.forEach((value, prop)=> {      
       if (this.meta.getTag(`property='${prop}'`) !== undefined) {
         this.meta.updateTag({ property: prop, content: value })
