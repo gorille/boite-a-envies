@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
-
+import { Meta, DOCUMENT } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService  {
 
-  constructor(private router: Router, private meta: Meta) {
+
+  constructor(private router: Router, private meta: Meta, @Inject(DOCUMENT) private document: any) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && (<any>window).ga !== undefined) {
         this.navigation(event.urlAfterRedirects);
@@ -21,11 +21,21 @@ export class AnalyticsService  {
       return (<any>window).ga.getAll()[0];
   }
 
+  /**
+   * updates the analytics to reflect navigation
+   * @param url 
+   */
   public navigation(url : string) {
     this.tracker.set('page', url);
     this.tracker.send('pageview');
   }
 
+  /**
+   * changes og data to reflect navigation
+   * @param title title of the page
+   * @param desc description of the page
+   * @param image image of  the page
+   */
   public updateCard(title: string, desc: string, image: string) {
     const props = new Map([
         ['og:url', (<any>window).location.href], 
@@ -42,5 +52,15 @@ export class AnalyticsService  {
         this.meta.addTag({ property: prop, content: value })
       }
     });
+  }
+
+  /**
+   * list all like and refresh them
+   */
+  public refreshFB(): void {
+    if ((<any>window).FB !== undefined) { 
+      const elts: any[] = Array.from(this.document.getElementsByClassName('fb-like'))
+      elts.forEach(elt => (<any>window).FB.XFBML.parse(elt.parentElement))
+    }
   }
 }

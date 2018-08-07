@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
 
 @Component({
@@ -12,9 +12,7 @@ export class WelcomeComponent implements AfterViewInit {
 
 
   ngAfterViewInit() {
-    if ((<any>window).FB !== undefined) {
-     (<any>window).FB.XFBML.parse();
-   }
+    this.analytics.refreshFB()
  }
 
   ngOnInit() {

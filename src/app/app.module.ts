@@ -11,6 +11,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AProposComponent } from './a-propos/a-propos.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FacebookModule } from 'ngx-facebook';
+import { MessengerComponent } from './messenger/messenger.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FacebookModule } from 'ngx-facebook';
     NavbarComponent,
     ProductListComponent,
     ProductDetailComponent,
-    AProposComponent
+    AProposComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,
