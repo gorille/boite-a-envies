@@ -27,8 +27,7 @@ export class AnalyticsService  {
   }
 
   public updateCard(url: string, title: string, desc: string, image: string) {
-    //['og:url', url],
-    const props = new Map([ ['og:title', title], ['og:description', desc], ['og:image', image], ['description', desc]]);
+    const props = new Map([['og:url', (<any>window).location.href], ['og:title', title], ['og:image', image], ['description', desc]]);
     props.forEach((value, prop)=> {      
       if (this.meta.getTag(`property='${prop}'`) !== undefined) {
         this.meta.updateTag({ property: prop, content: value })
