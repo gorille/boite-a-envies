@@ -55,12 +55,11 @@ export class AnalyticsService  {
   }
 
   /**
-   * sends out the event requesting a window.FB.XFBML/parse()
+   * list all like and refresh them
    */
   public refreshFB(): void {
     if ((<any>window).FB !== undefined) { 
       const elts: any[] = Array.from(this.document.getElementsByClassName('fb-like'))
-      console.log("redrawing", elts);
       elts.forEach(elt => (<any>window).FB.XFBML.parse(elt.parentElement))
     }
   }
