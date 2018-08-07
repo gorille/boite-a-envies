@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { AnalyticsService } from '../analytics.service';
 
 @Component({
@@ -6,29 +6,25 @@ import { AnalyticsService } from '../analytics.service';
   templateUrl: './messenger.component.html',
   styleUrls: ['./messenger.component.css']
 })
-export class MessengerComponent implements OnInit, AfterViewInit {
+export class MessengerComponent implements OnInit, AfterViewChecked {
 
   forceRedraw = true
+  draw  = true
 
   constructor(private analyticsService: AnalyticsService) {}
 
   ngOnInit() {
     this.analyticsService.fbRefreshRequest().subscribe(_=> {
       console.log("requesting redraw");
-      
-      this.forceRedraw = !this.forceRedraw;
-      if ((<any>window).FB !== undefined) { 
-        (<any>window).FB.XFBML.parse();
-      }
+      this.draw = true
     })
   }
-
-  ngAfterViewInit() {
-    console.log("redrawing");
-    if ((<any>window).FB !== undefined) { 
+  ngAfterViewChecked() {
+    if ((<any>window).FB !== undefined && this.draw) { 
+      console.log("redrawing");
       (<any>window).FB.XFBML.parse();
+      this.draw = false
     }
   }
-  
 
 }
