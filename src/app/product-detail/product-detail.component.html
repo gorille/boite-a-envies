@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row text-center">
         <div class="col-md-12">
-          <cl-image [public-id]="product.image" width='100%' >
+          <cl-image [public-id]="product.image" width='100%' secure="true" >
             <cl-transformation width="1200" crop="scale">
             </cl-transformation>
             <cl-transformation gravity="north_west" overlay="watermark_black" width="250" crop="scale">
