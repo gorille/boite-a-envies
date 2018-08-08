@@ -12,6 +12,8 @@ import { AProposComponent } from './a-propos/a-propos.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FacebookModule } from 'ngx-facebook';
 import { MessengerComponent } from './messenger/messenger.component';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+import { Cloudinary } from 'cloudinary-core';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MessengerComponent } from './messenger/messenger.component';
     NgbModule.forRoot(),
     AppRoutingModule,
     FacebookModule.forRoot(),
+    CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'dgtsw7ufe' } as CloudinaryConfiguration),
   ],
   providers: [],
   bootstrap: [AppComponent]
