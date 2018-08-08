@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Meta, DOCUMENT } from '@angular/platform-browser';
+import { Meta, DOCUMENT, Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,10 @@ export class AnalyticsService  {
 
   IMAGE_BASE = 'http://res.cloudinary.com/dgtsw7ufe/image/upload/';
 
-  constructor(private router: Router, private meta: Meta, @Inject(DOCUMENT) private document: any) {
+  constructor(private router: Router, 
+              private meta: Meta, 
+              @Inject(DOCUMENT) private document: any, 
+              private title: Title) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && (<any>window).ga !== undefined) {
         this.navigation(event.urlAfterRedirects);
@@ -53,6 +56,22 @@ export class AnalyticsService  {
         this.meta.addTag({ property: prop, content: value })
       }
     });
+    // sets the title.
+    this.title.setTitle(title);
+    this.refreshCanonical();
+    
+  }
+
+  private refreshCanonical() {
+    const linkBefore :HTMLLinkElement = this.document.getElementById('canonicalUrl')
+    if (linkBefore) {
+      linkBefore.remove();
+    }
+    const link: HTMLLinkElement = this.document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.document.head.appendChild(link);
+    link.setAttribute('href', this.document.URL);
+    link.setAttribute('id', 'canonicalUrl');
   }
 
   /**
