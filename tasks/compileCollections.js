@@ -26,7 +26,7 @@ cloudinary.v2.api.resources(options, function(error, result){
         } 
         product.title = image.context.custom.caption
         product.description = image.context.custom.alt
-        product.image = image.secure_url
+        product.image = image.public_id
         results.push(product)
       }
     })
