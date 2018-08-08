@@ -14,6 +14,7 @@ import { FacebookModule } from 'ngx-facebook';
 import { MessengerComponent } from './messenger/messenger.component';
 import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
+import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Cloudinary } from 'cloudinary-core';
     ProductListComponent,
     ProductDetailComponent,
     AProposComponent,
-    MessengerComponent
+    MessengerComponent,
+    DialogSurMesureComponent
   ],
   imports: [
     BrowserModule,
