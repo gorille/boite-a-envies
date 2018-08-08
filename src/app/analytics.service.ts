@@ -7,6 +7,7 @@ import { Meta, DOCUMENT } from '@angular/platform-browser';
 })
 export class AnalyticsService  {
 
+  IMAGE_BASE = 'http://res.cloudinary.com/dgtsw7ufe/image/upload/';
 
   constructor(private router: Router, private meta: Meta, @Inject(DOCUMENT) private document: any) {
     this.router.events.subscribe(event => {
@@ -40,7 +41,7 @@ export class AnalyticsService  {
     const props = new Map([
         ['og:url', (<any>window).location.href], 
         ['og:title', title], 
-        ['og:image', image], 
+        ['og:image', this.IMAGE_BASE + image], 
         ['og:image:alt', title], 
         ['og:description', desc],
         ['description', desc]
