@@ -12,7 +12,12 @@
 </div>
 <div class="row shadow p-3 m-3 bg-white rounded" *ngFor="let product of products.slice(page *10 -10 , page*10)" >
   <div class="col-md-3">
-    <img src="{{product.image}}"  class="img-thumbnail">
+  <cl-image public-id="{{product.image}}" class="img-thumbnail">
+    <cl-transformation width="250" crop="scale">
+    </cl-transformation>
+    <cl-transformation gravity="north_west" overlay="watermark_black" width="100" crop="scale">
+    </cl-transformation>
+  </cl-image>
   </div>
   <div class='col-md'>
       <div class="row">
