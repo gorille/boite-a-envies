@@ -6,8 +6,31 @@
       <hr class="my-4">
       <p>Je ne fais pas de grandes séries, mais au contraire du sur mesure. La disponibilité de mes produits varie donc. Revenez plus tard, j'en remettrai en ligne dès que j'aurai du stock !</p>
       <p>Ou alors, plutôt que de prendre un produit en stock, expliquez moi ce qui vous ferait plaisir et je m'en charge !</p>
+      <app-messenger-icon></app-messenger-icon>
       <a class="btn btn-light" (click)="goBack()" role="button">&lt;&lt; Retour</a>
     </div>
+  </div>
+</div>
+
+<div class="row shadow p-3 m-3 bg-white rounded bg-info" *ngIf="products.length > 0">
+  <div class="col-md-3">
+    <div class="bg-info text-white text-centered p-1 rounded">
+        <p class="text-center huge">?</p>
+    </div>
+  </div>
+  <div class='col-md'>
+      <div class="row">
+        <div class="col-md">
+          <h5><a href="https://m.me/laboiteaenvies">Votre modèle personnalisé et sur-mesure</a></h5>
+          <hr>
+          <p>N'hésitez pas à <a href="https://m.me/laboiteaenvies">me contacter</a> pour m'expliquer ce qui vous ferait plaisir ! Je vous proposerai un modèle rien qu'à vous, en fonction de vos désirs !</p>
+        </div>
+      </div>
+      <div class="row navbar-fixed-bottom">
+          <div class="col-md">
+              <p class="text-right"><strong>Entre 15 et 25 EUR, selon le produit</strong></p>
+          </div>
+        </div>
   </div>
 </div>
 <div class="row shadow p-3 m-3 bg-white rounded" *ngFor="let product of products.slice(page *10 -10 , page*10)" >

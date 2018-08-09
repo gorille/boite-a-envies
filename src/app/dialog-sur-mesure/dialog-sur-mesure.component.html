@@ -1,17 +1,49 @@
 <div class="row mt-4">
-  <div class="col-md-7">
-    <h3>Et si le sur mesure devenait simple ?</h3>
-    <p></p>
-    <svg x="0" y="0" width="60" height="60"><defs><linearGradient x1="50%" y1="100%" x2="50%" y2="0.000340050378%" id="linearGradient-1"><stop stop-color="#0068FF" offset="4.5%"></stop><stop stop-color="#00C6FF" offset="95.5%"></stop></linearGradient></defs><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g><g><circle fill="#FFFFFF" cx="30" cy="30" r="30"></circle><g transform="translate(10.000000, 11.000000)"><path d="M0,18.7150914 C0,24.5969773 2.44929143,29.6044708 6.95652174,33.0434783 L6.95652174,40 L14.2544529,36.6459314 C16.0763359,37.1551856 18,37.4301829 20,37.4301829 C31.043257,37.4301829 40,29.0529515 40,18.7150914 C40,8.37723141 31.043257,0 20,0 C8.956743,0 0,8.37723141 0,18.7150914 Z" fill="url(#linearGradient-1)"></path><polygon fill="#FFFFFF" points="16.9378907 19.359375 7 25 17.8976562 13.140625 23.0570312 18.640625 33 13 22.1023437 24.859375"></polygon></g></g></g></g></svg>
-  </div>
-  <div class="col-md-5">
-    <div class="screen">
-      <div class="message__list" *ngFor="let messages of dialog">
-        <img *ngIf="isBotMessage(messages.type)" class="bot__image" src="http://res.cloudinary.com/dgtsw7ufe/image/upload/c_scale,h_40,w_40/v1533575072/divers/La_boite_a_envie.jpg">
-        <div class="message__item message__item--{{messages.type}}" *ngFor="let msg of messages.messages">
-          <span class="message message--{{messages.type}}">{{msg}}</span>
-        </div>
+  <div class="col-md-5 col-sm-12 col-lg-7">
+    <div class="row">
+      <div class="col-md-12 pr-2">
+          <h2>Et si le sur-mesure devenait simple ?</h2>
+          <p class="lead">Qu'allez vous mettre avec votre superbe robe pour le mariage de votre meilleure amie ?<br></p>
+          <hr class="my-4">
+          <p>La réponse est toute simple : <strong>le bracelet personnalisé conçu spécialement pour aller avec !</strong></p>
       </div>
     </div>
+    <div class="row">
+      <div class="col-2 ">
+        <img class="rounded-circle" src='http://res.cloudinary.com/dgtsw7ufe/image/upload/v1533820448/divers/anne_so.jpg' width="100%">
+      </div>
+      <div class="col-10">
+        <p class="text-justify font-italic">Je réalise pour vous les bracelets en cuir ainsi que les accessoires sur-mesure conçus pour vous, en fonction de vos préférences, de votre tenue, de vos envies du moment.</p>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-md-12">
+          <p class="text-justify">Que cela soit pour vous, où pour les autres, les occasions ne manquent pas ! <br> 
+            Vous avez déja une idée de cadeau d'anniversaire pour votre nièce passionnée d'équitation ? Pourquoi pas un bracelet personalisé avec une breloque en forme de cheval ?<BR>
+            Et pour votre mari ? <strong>Je fais aussi des bracelets pour homme !</strong>
+          </p>
+          <p class="text-justify">La boîte à envies, c'est aussi l'occasion d'avoir <strong>un bijou unique</strong>, fait pour vous et que <strong>serez la seule à porter</strong> ! En cas de panne d'inspiration, n'hésitez pas à consulter <a routerLink='/products/bracelet'>les bracelets</a> que j'ai mis en ligne, celà vous aidera à vous décider.</p>  
+          <p class="text-justify">Pour me joindre, c'est tout simple, cliquez simplement sur l'icône Messenger ci dessous ou par mail à l'adresse <a href="mailto:laboiteaenvies@gmail.com">laboiteaenvies@gmail.com</a></p>
+          <app-messenger-icon></app-messenger-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+      <div class="card">
+        <div class="card-header">
+          La boîte à envies
+        </div>
+        <div class="card-body">
+          <div class="screen">
+            <div class="message__list" *ngFor="let messages of dialog">
+              <img *ngIf="isBotMessage(messages.type)" class="bot__image" src="http://res.cloudinary.com/dgtsw7ufe/image/upload/c_scale,h_40,w_40/v1533575072/divers/La_boite_a_envie.jpg">
+              <div class="message__item message__item--{{messages.type}}" *ngFor="let msg of messages.messages">
+                <span class="message message--{{messages.type}}">{{msg}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

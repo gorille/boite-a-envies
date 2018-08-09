@@ -15,6 +15,7 @@ import { MessengerComponent } from './messenger/messenger.component';
 import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
 import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.component';
+import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.
     ProductDetailComponent,
     AProposComponent,
     MessengerComponent,
-    DialogSurMesureComponent
+    DialogSurMesureComponent,
+    MessengerIconComponent
   ],
   imports: [
     BrowserModule,
