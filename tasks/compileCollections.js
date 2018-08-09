@@ -17,7 +17,7 @@ cloudinary.v2.api.resources(options, function(error, result){
     result.resources.forEach(image => {
       const product = {}
       const parts = image.public_id.split('/')
-      if (parts.length === 2 && image.context !== undefined) {
+      if (parts.length === 2 && image.context !== undefined && ["bijoux", "bracelet", "montre", "accessoire"].includes(parts[0])) {
         product.id = parts[1]
         product.type = parts[0]
         product.prix = image.context.custom.prix

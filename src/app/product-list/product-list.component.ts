@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[]
   page = 1
+  type: string
 
   constructor(
                 private route: ActivatedRoute,
@@ -21,8 +22,8 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap
               .subscribe( params => {
                 this.page = 1;
-                const type = params.get('type');
-                this.products = this.productsService.getProducts().filter (elt => elt.type === type)
+                this.type = params.get('type');
+                this.products = this.productsService.getProducts().filter (elt => elt.type === this.type)
               });
   }
 }
