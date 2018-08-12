@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Meta, DOCUMENT, Title } from '@angular/platform-browser';
+import { Product } from './data/product';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,28 @@ export class AnalyticsService  {
     if ((<any>window).FB !== undefined) { 
       const elts: any[] = Array.from(this.document.getElementsByClassName('fb-like'))
       elts.forEach(elt => (<any>window).FB.XFBML.parse(elt.parentElement))
+    }
+  }
+
+  public getSchema(product: Product): any {
+    return {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": product.title,
+      "image": [ this.IMAGE_BASE + product.image ],
+      "description": product.description,
+      "mpn": product.id,
+      "brand": {
+        "@type": "Thing",
+        "name": "La Boîte à envies"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": product.prix ,
+        "availability": "http://schema.org/InStock",
+        "url": this.document.URL
+      }
     }
   }
 }

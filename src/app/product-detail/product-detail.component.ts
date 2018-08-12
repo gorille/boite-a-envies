@@ -13,6 +13,7 @@ import { AnalyticsService } from '../analytics.service';
 export class ProductDetailComponent implements OnInit, AfterViewInit {
  
   product: Product;
+  schema: any;
 
   constructor(private route: ActivatedRoute, 
               private productsService: ProductService,
@@ -23,7 +24,7 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.product = this.productsService.getProducts().find(product => product.id === params.get('id'))
-      
+      this.schema =   this.analyticsService.getSchema(this.product)
       this.analyticsService.updateCard(
         this.product.title,
         this.product.description,

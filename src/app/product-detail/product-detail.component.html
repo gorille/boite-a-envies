@@ -1,4 +1,6 @@
 <div *ngIf="product" class="shadow p-3 m-3 bg-white rounded">
+  <ngx-json-ld [json]="schema"></ngx-json-ld>
+
   <div class="modal-header" >
     <h4 class="modal-title">{{product.title}}</h4>
   </div>
