@@ -16,6 +16,7 @@ import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5
 import { Cloudinary } from 'cloudinary-core';
 import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.component';
 import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
+import { NgxJsonLdModule } from 'ngx-json-ld';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MessengerIconComponent } from './messenger-icon/messenger-icon.componen
     AppRoutingModule,
     FacebookModule.forRoot(),
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'dgtsw7ufe' } as CloudinaryConfiguration),
+    NgxJsonLdModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
