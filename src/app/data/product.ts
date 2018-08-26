@@ -6,4 +6,5 @@ export class Product {
   taille?: string
   prix: string
   type: string
+  inStock?: boolean
 }

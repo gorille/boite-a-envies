@@ -21,6 +21,8 @@ cloudinary.v2.api.resources(options, function(error, result){
         product.id = parts[1]
         product.type = parts[0]
         product.prix = image.context.custom.prix
+        product.inStock = image.tags.some(tag => tag === 'EnStock')
+        
         if (image.context.custom.taille) {
           product.taille = image.context.custom.taille
         } 
