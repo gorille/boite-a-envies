@@ -17,6 +17,8 @@ import { Cloudinary } from 'cloudinary-core';
 import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.component';
 import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
 import { NgxJsonLdModule } from 'ngx-json-ld';
+import { PaypalComponent } from './paypal/paypal.component';
+import { MerciComponent } from './merci/merci.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NgxJsonLdModule } from 'ngx-json-ld';
     AProposComponent,
     MessengerComponent,
     DialogSurMesureComponent,
-    MessengerIconComponent
+    MessengerIconComponent,
+    PaypalComponent,
+    MerciComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,14 @@
 <div *ngIf="product" class="shadow p-3 m-3 bg-white rounded">
   <ngx-json-ld [json]="schema"></ngx-json-ld>
 
-  <div class="modal-header" >
+  <div class="modal-header">
     <h4 class="modal-title">{{product.title}}</h4>
   </div>
   <div class="modal-body">
     <div class="container-fluid">
       <div class="row text-center">
         <div class="col-md-12">
-          <cl-image [public-id]="product.image" width='100%' secure="true" >
+          <cl-image [public-id]="product.image" width='100%' secure="true">
             <cl-transformation width="1200" crop="scale">
             </cl-transformation>
             <cl-transformation gravity="north_west" overlay="watermark_black" width="250" crop="scale">
@@ -20,21 +20,28 @@
         <div class="col-md-12">
           <h5>Description:</h5>
           <p>{{product.description}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
           <h5 *ngIf="product.taille">
-              Taille: 
-              <small class="text-muted">{{product.taille}} cm</small>
+            Taille:
+            <small class="text-muted">{{product.taille}} cm</small>
           </h5>
           <h5 *ngIf="product.prix">
-            Prix: 
-            <small class="text-muted">{{product.prix}} €</small>
-        </h5>
+            Prix:
+            <small class="text-muted"><abbr title="Des frais d'expédition d'1.8 Eur s'appliquent" class="initialism">{{product.prix}} €</abbr></small>
+          </h5>
+        </div>
+        <div class="col-md-3 col-sm-9" *ngIf="product.inStock">
+          <app-paypal [product]="product"></app-paypal>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal-footer">
-    <fb-like href="https://la-boite-a-envies.fr/detail/{{product.id}}" layout="button_count" share="true" size="large"></fb-like>
-    <button type="button" class="btn btn-sm btn-secondary" (click)="back()">Retour</button>
-  </div>
+<div class="modal-footer">
+  <fb-like href="https://la-boite-a-envies.fr/detail/{{product.id}}" layout="button_count" share="true" size="large"></fb-like>
+  <button type="button" class="btn btn-sm btn-secondary" (click)="back()">Retour</button>
+</div>
 </div>

@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  paypalMode: 'production',
+  //paypalMode: 'sandbox', 
+  shippingCost: 1.8,
 };
