@@ -18,6 +18,7 @@ import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.
 import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
 import { NgxJsonLdModule } from 'ngx-json-ld';
 import { PaypalComponent } from './paypal/paypal.component';
+import { MerciComponent } from './merci/merci.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaypalComponent } from './paypal/paypal.component';
     MessengerComponent,
     DialogSurMesureComponent,
     MessengerIconComponent,
-    PaypalComponent
+    PaypalComponent,
+    MerciComponent
   ],
   imports: [
     BrowserModule,

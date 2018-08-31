@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, SimpleChanges, OnChanges, AfterViewInit } from '@angular/core';
 import { Product } from '../data/product';
+import { environment } from "../../environments/environment";
+import { Router } from '@angular/router';
 
 /**
  * Global variable where PayPal is loaded to
@@ -54,8 +56,7 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
 
   private readonly payPalButtonContainerIdPrefix = 'app-paypal-button-container-';
 
-  constructor(
-  ) {
+  constructor( private router: Router  ) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -131,14 +132,15 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
       // https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/add-paypal-button/
       window[this.paypalWindowName].Button.render({
           // set environment
-          env: 'sandbox',
+          env: environment.paypalMode,
 
           // Show the buyer a 'Pay Now' button in the checkout flow
           commit: true,
 
           // init client for client side integration
           client: {
-            sandbox: 'AY2ALgdma9l5Uy3lb-uYMUrlwUAw-QHCvacNpkugnQwOUONo5Ay1uCzHUzUZ_UIHCOE-LLHSj8Vi_his'
+            sandbox: 'AY2ALgdma9l5Uy3lb-uYMUrlwUAw-QHCvacNpkugnQwOUONo5Ay1uCzHUzUZ_UIHCOE-LLHSj8Vi_his',
+            production: 'AVrSJvMTSw26B0-c-M1_ki86uFwY1SFQpxBw8pMccZeDTRJp9jncbPpxiGEF0kOtfZaVxAEDaGB3iMLN'
           },
 
 
@@ -158,10 +160,10 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
                   transactions: [
                       {
                           amount: { 
-                            total: Number(this.product.prix) + 1.8, currency: 'EUR' ,
+                            total: Number(this.product.prix) + environment.shippingCost, currency: 'EUR' ,
                             details: {
                               subtotal: Number(this.product.prix),
-                              shipping: '1.8'
+                              shipping: environment.shippingCost
                             }
                           },
                           item_list: {
@@ -181,10 +183,12 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
 
           // onAuthorize() is called when the buyer approves the payment
           onAuthorize: (data: any, actions: any) => {
-            return actions.payment.execute().then(function()
+            return actions.payment.execute().then( () =>
               {
-                // Show a confirmation message to the buyer
-                window.alert('Thank you for your purchase!');
+                  console.log(data);
+                  
+                // navigate to thanks page !
+                this.router.navigateByUrl('/merci')
               });
           },
 
