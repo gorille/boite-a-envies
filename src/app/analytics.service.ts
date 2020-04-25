@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Meta, DOCUMENT, Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';import { DOCUMENT } from "@angular/common";
 import { Product } from './data/product';
 
 @Injectable({
