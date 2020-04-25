@@ -7,7 +7,7 @@ import {
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'ngx-json-ld',
+  selector: 'app-json-ld',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
