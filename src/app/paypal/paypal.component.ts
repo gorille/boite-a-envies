@@ -22,7 +22,7 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
     /**
    * Container for paypal script
    */
-  @ViewChild('payPalScriptElem') paypalScriptElem: ElementRef;
+  @ViewChild('payPalScriptElem', {static: false}) paypalScriptElem: ElementRef;
 
   /**
    * Used for indicating delayed rendered if container is not yet ready in DOM
@@ -33,7 +33,7 @@ export class PaypalComponent implements OnChanges, AfterViewInit {
    * Holds current container element
    */
   private _payPalButtonContainerElem?: ElementRef;
-  @ViewChild('payPalButtonContainerElem') set payPalButtonContainerElem(content: ElementRef) {
+  @ViewChild('payPalButtonContainerElem', {static: false}) set payPalButtonContainerElem(content: ElementRef) {
       if (content) {
           this._payPalButtonContainerElem = content;
       }

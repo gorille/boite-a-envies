@@ -16,9 +16,9 @@ import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5
 import { Cloudinary } from 'cloudinary-core';
 import { DialogSurMesureComponent } from './dialog-sur-mesure/dialog-sur-mesure.component';
 import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
-import { NgxJsonLdModule } from 'ngx-json-ld';
 import { PaypalComponent } from './paypal/paypal.component';
 import { MerciComponent } from './merci/merci.component';
+import { JsonLdComponent } from './json-ld/json-ld.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { MerciComponent } from './merci/merci.component';
     DialogSurMesureComponent,
     MessengerIconComponent,
     PaypalComponent,
-    MerciComponent
+    MerciComponent,
+    JsonLdComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,6 @@ import { MerciComponent } from './merci/merci.component';
     AppRoutingModule,
     FacebookModule.forRoot(),
     CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'dgtsw7ufe' } as CloudinaryConfiguration),
-    NgxJsonLdModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
